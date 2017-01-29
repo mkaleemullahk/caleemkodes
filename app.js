@@ -6,16 +6,14 @@
 	LunchCheckController.$inject =['$scope'];
 
 	function LunchCheckController ($scope){
-		$scope.list = '';
-		$scope.msg = '';
+		$scope.items = '';
+		$scope.message = '';
 		$scope.fontStyle = {};
 		$scope.boxStyle = {};
 
 		$scope.Check = function () {
-		//	console.log ('check Items');
-		//	console.log ($scope.list);
-			if($scope.list !== '') {
-				var arr = $scope.list.split(',');
+				if($scope.items !== '') {
+				var arr = $scope.items.split(',');
 				var count =0;
 				for(var i =0; i<arr.length; i++){
 					if(arr[i].trim() !=='')
@@ -23,13 +21,13 @@
 				}
 				if(count > 0){
 					if(count <=3){
-						$scope.msg = 'Enjoy!';
+						$scope.message = 'Enjoy!';
             $scope.fontStyle = {
   						"color":"green"
   					};
 					}
 					else if(count > 3){
-						$scope.msg = 'Too much!';
+						$scope.message = 'Too much!';
             $scope.fontStyle = {
   						"color":"red"
   					};
@@ -47,7 +45,7 @@
 			             }
 		               }
 		                var enterItems = function() {
-			              $scope.msg = 'Please enter data first';
+			              $scope.message = 'Please enter data first';
 				            $scope.fontStyle =
                     {
                     "color":"red"
